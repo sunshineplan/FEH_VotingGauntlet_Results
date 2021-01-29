@@ -10,8 +10,7 @@ jobs:
     steps:
       - name: Run
         run: |
-          curl -LO https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2004-arm64-100.2.1.deb
-          sudo apt install ./mongodb-database-tools-*-100.2.1.deb
+          sudo apt install mongodb-org-tools
           curl -LO https://github.com/sunshineplan/feh/releases/download/v1.0/run
           sudo chmod +x run
           ./run -mongo ${{ secrets.MONGO }} -account ${{ secrets.USERNAME }} -password ${{ secrets.PASSWORD }} -to ${{ secrets.TO }} backup
