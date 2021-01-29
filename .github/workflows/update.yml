@@ -1,0 +1,14 @@
+name: Update
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run
+        run: |
+          curl -LO https://github.com/sunshineplan/feh/releases/download/v1.0/run
+          sudo chmod +x run
+          ./run -mongo ${{ secrets.MONGO }} -account ${{ secrets.USERNAME }} -password ${{ secrets.PASSWORD }} -to ${{ secrets.TO }}
