@@ -19,12 +19,9 @@ jobs:
           sudo chmod +x run
           sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
           ./run -mongo ${{ secrets.MONGO }} commit
-          ls
           mv *.json feh/Results
-          ls
-          message = $(cat message)
+          message = $(cat ./message)
           cd feh
-          ls
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
