@@ -20,7 +20,7 @@ jobs:
           sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
           ./run -mongo ${{ secrets.MONGO }} commit
           mv *.json feh/Results
-          MESSAGE = $(cat message)
+          MESSAGE=$(cat message)
           cd feh
           git config user.name github-actions
           git config user.email github-actions@github.com
