@@ -2,7 +2,7 @@ name: Update
 on:
   workflow_dispatch:
   schedule:
-    - cron: '3 * * * *'
+    - cron: '0,30 * * * *'
 
 jobs:
   update:
@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Run
         run: |
+          TZ=Asia/Shanghai date
           curl -LO https://github.com/sunshineplan/feh/releases/download/v1.0/run
           sudo chmod +x run
           sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
