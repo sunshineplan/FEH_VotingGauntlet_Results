@@ -18,7 +18,7 @@ jobs:
           curl -LO https://github.com/sunshineplan/feh/releases/download/v1.0/run
           sudo chmod +x run
           sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
-          ./run -mongo ${{ secrets.MONGO }} commit
+          ./run -mongo ${{ secrets.MONGO }} -tz "Asia/Shanghai" commit
           mv *.json feh/Results
           MESSAGE=$(cat message)
           cd feh
