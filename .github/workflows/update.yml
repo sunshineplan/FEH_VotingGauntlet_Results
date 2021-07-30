@@ -11,7 +11,7 @@ jobs:
       - name: Run
         run: |
           TZ=Asia/Shanghai date
-          curl -LOsS https://github.com/sunshineplan/feh/releases/download/v1.0/run
+          curl -LOsS https://github.com/sunshineplan/feh/releases/latest/download/run
           sudo chmod +x run
           sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
           ./run -mongo ${{ secrets.MONGO }} -account ${{ secrets.USERNAME }} -password ${{ secrets.PASSWORD }} \
