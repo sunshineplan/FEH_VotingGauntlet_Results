@@ -13,5 +13,5 @@ jobs:
           curl -LO https://github.com/sunshineplan/feh/releases/latest/download/run
           sudo chmod +x run
           sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
-          ./run -mongo ${{ secrets.MONGO }} -account ${{ secrets.USERNAME }} -password ${{ secrets.PASSWORD }} \
-          -to ${{ secrets.TO }} -tz "Asia/Shanghai" backup
+          ./run -mongo ${{ secrets.MONGO }} -server ${{ secrets.SERVER }} -account ${{ secrets.USERNAME }} \
+          -password ${{ secrets.PASSWORD }} -to ${{ secrets.TO }} -tz "Asia/Shanghai" backup
