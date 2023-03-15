@@ -6,10 +6,14 @@ on:
 
 jobs:
   backup:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Run
         run: |
+          wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+          echo "deb https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+          sudo apt update
+          sudo apt install mongodb-database-tools
           curl -LO https://github.com/sunshineplan/feh/releases/latest/download/run
           sudo chmod +x run
           sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
